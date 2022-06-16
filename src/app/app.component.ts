@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShowMoviesDirective } from './show-movies.directive';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sam';
+
+
+  constructor(){
+
+  }
+
 }

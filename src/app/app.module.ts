@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangeStyleOnHoverDirective } from './change-style-on-hover.directive';
+import { ShowMoviesDirective } from './show-movies.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ChangeStyleOnHoverDirective,
+    ShowMoviesDirective
   ],
   imports: [
     BrowserModule,
