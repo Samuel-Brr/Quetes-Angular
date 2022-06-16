@@ -1,1 +1,52 @@
-<p>sign-up works!</p>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" [(ngModel)]="user.mail"
+  required email #email="ngModel" >
+
+  <div *ngIf="firstname.errors && form.submitted" class="errorMessage">
+    <span *ngIf="email.errors?.['required']">email required</span>
+    <span *ngIf="email.errors?.['email']">"L'email est invalide"</span>
+  </div>
+  <br>
+
+
+  <label for="firstname">Firstname</label>
+  <input type="text" name="firstname" id="firstname" [(ngModel)]="user.firstname"
+  required minlength="3" maxlength="15" #firstname = 'ngModel'>
+
+  <div *ngIf="firstname.errors && form.submitted" class="errorMessage">
+    <span *ngIf="firstname.errors?.['required']">Firstname required</span>
+    <span *ngIf="firstname.errors?.['minlength']">La longueur minimale doit être supérieure à 3</span>
+    <span *ngIf="firstname.errors?.['maxlength']">La longueur maximale doit être inférieure à 15</span>
+  </div>
+  <br>
+
+
+  <label for="lastname">LastName</label>
+  <input type="text" name="lastname" id="lastname" [(ngModel)]="user.lastname"
+  required minlength="3" maxlength="15" #lastname="ngModel">
+
+  <div *ngIf="firstname.errors && form.submitted" class="errorMessage">
+    <span *ngIf="lastname.errors?.['required']">Lastname required</span>
+    <span *ngIf="lastname.errors?.['minlength']">La longueur minimale doit être supérieure à 3</span>
+    <span *ngIf="lastname.errors?.['maxlength']">La longueur maximale doit être inférieure à 15</span>
+  </div>
+  <br>
+
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" [(ngModel)]="user.password">
+
+  <button type="submit">Save</button>
+
+</form>
+
+<h2>Données émises pas le formulaire:</h2>
+
+<p> {{form.submitted}} </p>
+
+<p> {{user.mail}} </p>
+<p> {{user.firstname}} </p>
+<p> {{user.lastname}} </p>
+<p> {{user.password}} </p>
