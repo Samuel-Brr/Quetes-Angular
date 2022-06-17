@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
+import { SearchMovieComponent } from './search-movie/search-movie.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CustomDirectivesComponent } from './custom-directives/custom-directives
     ShowMoviesDirective,
     SignUpComponent,
     MenuComponent,
-    CustomDirectivesComponent
+    CustomDirectivesComponent,
+    SearchMovieComponent
   ],
   imports: [
     BrowserModule,
