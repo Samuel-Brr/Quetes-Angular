@@ -9,6 +9,7 @@ export class ShowMoviesDirective implements OnInit {
 
   @HostBinding('style.display') cssDisplayValue: string = 'block';
 
+
   constructor() {}
 
   ngOnInit(): void {

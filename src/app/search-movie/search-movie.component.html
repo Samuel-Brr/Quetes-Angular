@@ -1,1 +1,47 @@
-<p>search-movie works!</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="searchMovieForm" #myForm="ngForm">
+
+  <div formGroupName="idAndTitle">
+
+    <label for="id">Identifiant</label>
+    <input (keyup)="enableFicheInput()" type="text" id="id" formControlName="id" >
+    <!-- TODO message d'erreur -->
+    <ng-container *ngIf="myForm.submitted && getIdAndTitle.errors?.['isRequired'] ">
+      <span> Le champs identifiant est requis.</span>
+    </ng-container>
+    <br>
+
+    <label for="title">Titre</label>
+    <input type="text" id="title" formControlName="title" >
+    <!-- TODO message d'erreur -->
+    <ng-container *ngIf="myForm.submitted && getIdAndTitle.errors?.['isRequired'] ">
+      <span> Le champs Titre est requis. </span>
+    </ng-container>
+    <br>
+
+  </div>
+  <br>
+
+  <label for="type">Type</label>
+  <select formControlName="type" id="type">
+    <option *ngFor="let item of allTypes" [value]="item">{{item}}</option>
+  </select>
+  <br>
+
+  <label for="annéeDeSortie">Année de sortie</label>
+  <input type="number" id="annéeDeSortie" formControlName="anneeDeSortie" >
+  <!-- TODO message d'erreur -->
+  <ng-container *ngIf="myForm.submitted">
+      <span *ngIf="anneeDeSortie.errors?.['required']"> L'année de sortie est requise. </span>
+      <span *ngIf="anneeDeSortie.errors?.['min']"> L'année de sortie doit être comprise entre 1970 et {{currentYear}} </span>
+  </ng-container>
+  <br>
+  <br>
+
+  <label for="fiche">Fiche</label>
+  <select formControlName="fiche" id="fiche">
+    <option *ngFor="let item of allFiches" [value]="item">{{item}}</option>
+  </select>
+
+  <button type="submit">Chercher</button>
+
+</form>

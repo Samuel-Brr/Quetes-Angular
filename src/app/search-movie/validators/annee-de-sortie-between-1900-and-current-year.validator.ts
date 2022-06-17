@@ -6,9 +6,7 @@ export function rangeDateValidator(minYear: number, maxYear: number): ValidatorF
     // Get first control value
     const inputedDate: number = control.value;
 
-
-
-    if (minYear >= inputedDate && inputedDate <= maxYear) {
+    if (inputedDate) {
       return { 'min': `Release date must be between ${minYear} and ${maxYear}` };
     } else {
       return null;
