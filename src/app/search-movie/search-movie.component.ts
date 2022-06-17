@@ -14,18 +14,22 @@ export class SearchMovieComponent implements OnInit {
       title: ['']
     }),
 
-    type: this.fb.group({
-      film: ['film'],
-      serie: ['série'],
-      episode: ['épisode']
-    }),
+    type: ['série'],
+
+    // type: this.fb.group({
+    //   film: ['film'],
+    //   serie: ['série'],
+    //   episode: ['épisode']
+    // }),
 
     annéeDeSortie: [''],
 
-    fiche: this.fb.group({
-      complete: ['complète'],
-      courte: ['courte']
-    })
+    fiche: ['']
+
+    // fiche: this.fb.group({
+    //   complete: ['complète'],
+    //   courte: ['courte']
+    // })
 
 
   })
@@ -34,6 +38,13 @@ export class SearchMovieComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.ficheInitialValue();
+  }
+
+  ficheInitialValue(){
+    this.searchMovieForm.patchValue({
+      fiche: 'courte'
+    })
   }
 
 }

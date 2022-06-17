@@ -1,6 +1,6 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 
-export function idOrTitleRequiredValidator(id: string, title: string): ValidatorFn {
+export function isRequiredValidator(id: string, title: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
 
     // Get first control value
@@ -9,7 +9,7 @@ export function idOrTitleRequiredValidator(id: string, title: string): Validator
     const value2 = control.get(title)!.value;
 
     if (!(value1 || value2)) {
-      return { 'id-or-title-missing': 'id or title required' };
+      return { 'isRequired': 'id or title required' };
     } else {
       return null;
     }

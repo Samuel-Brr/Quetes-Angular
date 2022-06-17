@@ -1,15 +1,15 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 
-export function anneeDeSortieBetween1900AndCurrentYearValidator(annéeDeSortie: string): ValidatorFn {
+export function rangeDateValidator(minYear: number, maxYear: number): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
 
     // Get first control value
-    const inputedDate: number = control.get(annéeDeSortie)!.value;
-    const currentYear: number = new Date().getFullYear()
+    const inputedDate: number = control.value;
 
 
-    if (1900 >= inputedDate && inputedDate <= currentYear) {
-      return { 'date out of valid range': 'Release date must be between 1900 and *** (current year)' };
+
+    if (minYear >= inputedDate && inputedDate <= maxYear) {
+      return { 'min': `Release date must be between ${minYear} and ${maxYear}` };
     } else {
       return null;
     }
