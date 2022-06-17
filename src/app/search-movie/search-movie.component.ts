@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-search-movie',
@@ -7,7 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMovieComponent implements OnInit {
 
-  constructor() { }
+  searchMovieForm = this.fb.group({
+    idAndTitle: this.fb.group({
+      id: [''],
+      title: ['']
+    }),
+
+    type: this.fb.group({
+      film: ['film'],
+      serie: ['série'],
+      episode: ['épisode']
+    }),
+
+    annéeDeSortie: [''],
+
+    fiche: this.fb.group({
+      complete: ['complète'],
+      courte: ['courte']
+    })
+
+
+  })
+
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
